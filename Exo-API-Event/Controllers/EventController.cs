@@ -26,7 +26,7 @@ namespace Exo_API_Event.Controllers
             try
             {
                 Event data = _context.Event;
-                return Ok(data.ToDetails());
+                return Ok(data.ToDetails(_context.Guests));
             }
             catch (Exception)
             {

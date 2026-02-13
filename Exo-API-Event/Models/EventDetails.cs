@@ -1,4 +1,6 @@
-﻿namespace Exo_API_Event.Models
+﻿using Exo_API_Event.Fake.Entities;
+
+namespace Exo_API_Event.Models
 {
     public class EventDetails
     {
@@ -8,5 +10,14 @@
         public string Title { get; set; }
         public string? Description { get; set; }
         public bool Dresscode { get; set; }
+        public IEnumerable<Guest> Guests { get; set; }
+        public int HowManyInvitationSended
+        {
+            get => Guests.Count();
+        }
+        public int HowManyInvitationAccepted
+        {
+            get => Guests.Count(g => g.IsPresent);
+        }
     }
 }
